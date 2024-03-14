@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import Items from "./Items";
+import useMenu from "../../../hooks/usehooks";
 
 const CardItems = () => {
 
-    const [menu, setMenu] = useState([]);
-
-    useEffect(()=>{
-        fetch('menu.json')
-        .then(res => res.json())
-        .then(data => {
-            const recommendItems = data.filter(item => item.category === 'recommend');
-            setMenu(recommendItems)
-        })
-    }, [])
-
+    const [menu] = useMenu()
+    const recommendItems = menu.filter(item => item.category === 'recommend');
+    
     return (
         <div className="mb-16 mx-12">
             <SectionTitle
@@ -23,7 +15,7 @@ const CardItems = () => {
             ></SectionTitle>
             <div className="grid md:grid-cols-3 gap-4 mx-auto">
                 {
-                    menu.map(item => <Items
+                    recommendItems.map(item => <Items
                     key={item._id}
                     item={item}
                     ></Items>)
