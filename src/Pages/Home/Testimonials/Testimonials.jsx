@@ -1,4 +1,5 @@
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import ReactStars from "react-rating-stars-component";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -9,7 +10,7 @@ import { useEffect, useState } from "react";
 
 
 const Testimonials = () => {
-    
+
     const [review, setReview] = useState([]);
 
     useEffect(() => {
@@ -26,7 +27,7 @@ const Testimonials = () => {
                     review.map(review => <SwiperSlide key={review._id} review={review}>
                         <div className="mx-12 md:mx-40">
                             <div className="space-y-8">
-                                <h1 className="text-center">{review.rating}</h1>
+                                <h1 className="text-center"><ReactStars count={review.rating}size={40}/></h1>
                                 <p className="text-center">{review.details}</p>
                                 <p className="text-center text-3xl font-bold text-yellow-500">{review.name}</p>
                             </div>
