@@ -13,6 +13,7 @@ const Bar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52 font-bold">
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/menu'>Our Menu</Link></li>
+                            <li><Link to='/order'>Order</Link></li>
                             <li><Link to='/contact'>Contact Us</Link></li>
                             
                         </ul>
@@ -23,6 +24,7 @@ const Bar = () => {
                     <ul className="menu menu-horizontal px- font-bold">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/menu'>Our Menu</Link></li>
+                        <li><Link to='/order'>Order</Link></li>
                         <li><Link to='/contact'>Contact Us</Link></li>
                     </ul>
                 </div>

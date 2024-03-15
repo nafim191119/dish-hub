@@ -25,13 +25,13 @@ const Menu = () => {
             <Cover img={menuImg} title={"Our Menu"} subTitle={"Would you like to try a dish?"}></Cover>
             <SectionTitle subHeading={"Don't Miss"} heading={"Today's Offer"}></SectionTitle>
             <MenuCategory items={offered}></MenuCategory>
-            <Cover img={dessertImg} title={"Dessert"} subTitle={"Would you like to try a dish?"}></Cover>
+            <Cover img={dessertImg} title={"dessert"} subTitle={"Would you like to try a dish?"}></Cover>
             <MenuCategory items={dessert}></MenuCategory>
-            <Cover img={pizzaImg} title={"Pizza"} subTitle={"Would you like to try a dish?"}></Cover>
+            <Cover img={pizzaImg} title={"pizza"} subTitle={"Would you like to try a dish?"}></Cover>
             <MenuCategory items={pizza}></MenuCategory>
-            <Cover img={saladImg} title={"Salad"} subTitle={"Would you like to try a dish?"}></Cover>
+            <Cover img={saladImg} title={"salad"} subTitle={"Would you like to try a dish?"}></Cover>
             <MenuCategory items={salad}></MenuCategory>
-            <Cover img={soupImg} title={"Soup"} subTitle={"Would you like to try a dish?"}></Cover>
+            <Cover img={soupImg} title={"soup"} subTitle={"Would you like to try a dish?"}></Cover>
             <MenuCategory items={soup}></MenuCategory>
         </div>
     );
