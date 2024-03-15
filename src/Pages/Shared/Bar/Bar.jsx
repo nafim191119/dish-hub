@@ -15,7 +15,9 @@ const Bar = () => {
                             <li><Link to='/menu'>Our Menu</Link></li>
                             <li><Link to='/order'>Order</Link></li>
                             <li><Link to='/contact'>Contact Us</Link></li>
-                            
+                            <li><Link to='/login'>Login</Link></li>
+                            <li><Link to='/signup'>Signup</Link></li>
+
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost text-3xl font-bold">DISH HUB</Link>
@@ -26,6 +28,8 @@ const Bar = () => {
                         <li><Link to='/menu'>Our Menu</Link></li>
                         <li><Link to='/order'>Order</Link></li>
                         <li><Link to='/contact'>Contact Us</Link></li>
+                        <li><Link to='/login'>Login</Link></li>
+                        <li><Link to='/signup'>Signup</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

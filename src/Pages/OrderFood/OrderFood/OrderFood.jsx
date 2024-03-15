@@ -5,6 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import { useState } from "react";
 import useMenu from "../../../hooks/usehooks";
 import OrderTab from "../OrderTab/OrderTab";
+import { Helmet } from "react-helmet";
 
 const OrderFood = () => {
     const [tabIndex, setTabIndex] = useState(0);
@@ -17,6 +18,9 @@ const OrderFood = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dish Hub | Order</title>
+            </Helmet>
             <Cover img={orderImg} title={"Order"} subTitle={"What you looking for?"}></Cover>
             <div className="flex justify-center">
                 <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>

@@ -1,11 +1,15 @@
 import Cover from "../../Shared/Cover/Cover";
 import contactImg from "../../../assets/contact/banner.jpg"
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet";
 
 
 const Contact = () => {
     return (
         <div>
+            <Helmet>
+                <title>Dish Hub | Contact</title>
+            </Helmet>
             <Cover img={contactImg} title={"Contact Us"} subTitle={"Let's Start a Conversation"}></Cover>
             <SectionTitle heading={"Our Location"} subHeading={"Visit Us"}></SectionTitle>
             <div className="flex gap-4 my-12 justify-center items-center">
@@ -13,8 +17,13 @@ const Contact = () => {
                     <div className="card-body text-white">
                         <p className="card-title">Phone logo</p>
                         <p className="text-center text-3xl font-bold uppercase">Phone</p>
-                        <div className="card-actions justify-center">
-                            <h1 className="my-8">+8801844662344</h1>
+                        <div className="my-8">
+                            <div className="card-actions justify-center">
+                                <h1 className="">+8801844662344</h1>
+                            </div>
+                            <div className="card-actions justify-center">
+                                <h1 className="">xyz@gmail.com</h1>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -22,8 +31,13 @@ const Contact = () => {
                     <div className="card-body text-white">
                         <p className="card-title">Location logo</p>
                         <p className="text-center text-3xl font-bold uppercase">Location</p>
-                        <div className="card-actions justify-center">
-                            <h1 className="my-8">XYZ</h1>
+                        <div className="my-8">
+                            <div className="card-actions justify-center">
+                                <h1 className="">XYZ</h1>
+                            </div>
+                            <div className="card-actions justify-center">
+                                <h1 className="">XYZ </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
