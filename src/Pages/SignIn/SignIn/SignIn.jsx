@@ -1,20 +1,35 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext);
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => { 
+                        reset();
+                        Swal.fire({
+                            position: "top-center",
+                            icon: "User created successfully",
+                            title: "Your work has been saved",
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                        navigate('/');
+                     })
+                    .catch(err => console.log(err))
+            })
     }
 
 
@@ -39,16 +54,23 @@ const SignIn = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input {...register("photoURL", { required: true })} type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" />
+                                {errors.photoURL && <span className="text-red-600">Photo URL is Required</span>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input {...register("email", { required: true })} type="email" name="email" placeholder="Email" className="input input-bordered"  />
+                                <input {...register("email", { required: true })} type="email" name="email" placeholder="Email" className="input input-bordered" />
                                 {errors.email && <span className="text-red-600">Email is Required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input {...register("password", { required: true })} type="password" name="password" placeholder="Password" className="input input-bordered"  />
+                                <input {...register("password", { required: true })} type="password" name="password" placeholder="Password" className="input input-bordered" />
                                 {errors.password && <span className="text-red-600">Password is Required</span>}
                             </div>
                             <div className="form-control mt-6">

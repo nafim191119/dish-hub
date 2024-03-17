@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const LogIn = () => {
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
 
 
@@ -23,11 +26,12 @@ const LogIn = () => {
                 console.log(user)
                 Swal.fire({
                     position: "top-center",
-                    icon: "success",
+                    icon: "User log in successful",
                     title: "Your work has been saved",
                     showConfirmButton: false,
                     timer: 1500
                   });
+                navigate(from, {replace: true});
             })
     }
     return (
