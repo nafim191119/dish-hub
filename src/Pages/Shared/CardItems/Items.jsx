@@ -1,7 +1,6 @@
 
 const Items = ({ item }) => {
-
-    const { image, name, recipe, price } = item;
+    const {image, name, recipe, price } = item;
     return (
         <div className="mx-auto">
             <div className="card w-80 shadow-2xl glass">

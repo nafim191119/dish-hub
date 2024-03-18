@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaCartPlus } from "react-icons/fa6";
+import useCart from "../../../hooks/useCart";
 
 const Bar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [cart] = useCart();
 
     const handleLogOut = () => {
         logOut()
@@ -11,6 +14,8 @@ const Bar = () => {
             .catch(error => { console.log(error) })
 
     }
+
+
 
     return (
         <div>
@@ -34,19 +39,20 @@ const Bar = () => {
                     <Link to='/' className="btn btn-ghost text-3xl font-bold">DISH HUB</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px- font-bold">
+                    <ul className="menu menu-horizontal px- font-semibold">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/menu'>Our Menu</Link></li>
                         <li><Link to='/order'>Order</Link></li>
                         <li><Link to='/contact'>Contact Us</Link></li>
                         <li><Link to='/signup'>Signup</Link></li>
+                        <li><Link to='/dashboard/mycart' className=""><FaCartPlus /> <div className="badge badge-secondary">+{cart?.length}</div></Link></li>
                         {
                             user ? <><li><Link onClick={handleLogOut}>Logout</Link></li></> : <><li><Link to='/login'>Login</Link></li></>
                         }
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <span className="px-4 font-bold text-xl">Hi! {user?.displayName}</span>
+                    <span className="px-4 font-bold text-md bg-primary rounded-md p-2">Hi! {user?.displayName}</span>
                 </div>
             </div>
         </div>
