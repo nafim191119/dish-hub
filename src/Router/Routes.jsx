@@ -13,48 +13,48 @@ import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 
 
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-            path: 'menu',
-            element: <Menu></Menu>
-        },
-        {
-            path: 'contact',
-            element: <Contact></Contact>
-        },
-        {
-            path: 'order',
-            element: <OrderFood></OrderFood>
-        },
-        {
-            path: 'login',
-            element: <LogIn></LogIn>
-        },
-        {
-            path: 'signup',
-            element: <SignIn></SignIn>
-        },
-        {
-          path: 'secret',
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>
-        },
-      ]
-    },
-    {
-      path: 'dashboard',
-      element: <Dashboard></Dashboard>,
-      children: [
-        {
-          path: 'mycart',
-          element: <MyCart></MyCart>
-        }
-      ]
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: 'menu',
+        element: <Menu></Menu>
+      },
+      {
+        path: 'contact',
+        element: <Contact></Contact>
+      },
+      {
+        path: 'order',
+        element: <OrderFood></OrderFood>
+      },
+      {
+        path: 'login',
+        element: <LogIn></LogIn>
+      },
+      {
+        path: 'signup',
+        element: <SignIn></SignIn>
+      },
+      {
+        path: 'secret',
+        element: <PrivateRoute><Secret></Secret></PrivateRoute>
+      },
+    ]
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: 'mycart',
+        element: <MyCart></MyCart>
+      }
+    ]
+  }
+]);

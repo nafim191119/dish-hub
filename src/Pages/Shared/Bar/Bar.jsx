@@ -44,15 +44,18 @@ const Bar = () => {
                         <li><Link to='/menu'>Our Menu</Link></li>
                         <li><Link to='/order'>Order</Link></li>
                         <li><Link to='/contact'>Contact Us</Link></li>
-                        <li><Link to='/signup'>Signup</Link></li>
                         <li><Link to='/dashboard/mycart' className=""><FaCartPlus /> <div className="badge badge-secondary">+{cart?.length}</div></Link></li>
                         {
                             user ? <><li><Link onClick={handleLogOut}>Logout</Link></li></> : <><li><Link to='/login'>Login</Link></li></>
                         }
+                        <li><Link to='/signup'>Signup</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <span className="px-4 font-bold text-md bg-primary rounded-md p-2">Hi! {user?.displayName}</span>
+                    {
+                        user? <span className="px-4 font-bold text-md bg-primary rounded-md p-2">Hi! {user?.displayName}</span> : <></>
+                    }
+                    
                 </div>
             </div>
         </div>
