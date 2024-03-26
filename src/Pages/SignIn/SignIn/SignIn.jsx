@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const SignIn = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
@@ -17,17 +18,30 @@ const SignIn = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
-                    .then(() => { 
-                        reset();
-                        Swal.fire({
-                            position: "top-center",
-                            icon: "User created successfully",
-                            title: "Your work has been saved",
-                            showConfirmButton: false,
-                            timer: 1500
-                          });
-                        navigate('/');
-                     })
+                    .then(() => {
+                        const saveUser = {name: data.name, email: data.email};
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type':'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedID) {
+                                    reset();
+                                    Swal.fire({
+                                        position: "top-center",
+                                        icon: "User created successfully",
+                                        title: "Your work has been saved",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+                    })
                     .catch(err => console.log(err))
             })
     }
@@ -79,6 +93,7 @@ const SignIn = () => {
                             <label className="label mx-auto">
                                 <Link to={'/login'} className="label-text-alt link link-hover text-primary">Already member? Login now!</Link>
                             </label>
+                            <SocialLogin></SocialLogin>
                         </form>
                     </div>
                 </div>

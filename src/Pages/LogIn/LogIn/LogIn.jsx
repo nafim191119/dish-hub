@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const LogIn = () => {
 
@@ -64,6 +65,7 @@ const LogIn = () => {
                             <label className="label mx-auto">
                                 <Link to={'/signup'} className="label-text-alt link link-hover text-primary">New to here? Register now!</Link>
                             </label>
+                            <SocialLogin></SocialLogin>
                         </form>
                     </div>
                 </div>
