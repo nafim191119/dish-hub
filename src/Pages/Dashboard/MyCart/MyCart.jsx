@@ -95,7 +95,6 @@ const MyCart = ({item}) => {
                                         </td>
                                     </tr>)
                                 }
-
                             </tbody>
                         </table>
                     </div>

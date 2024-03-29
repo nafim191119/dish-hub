@@ -4,7 +4,7 @@ import { SlCalender } from "react-icons/sl";
 import { MdOutlinePayment } from "react-icons/md";
 import { FaCartPlus, FaHome } from "react-icons/fa";
 import { MdRateReview } from "react-icons/md";
-import { FaBook, FaBookOpen, FaUserCheck } from "react-icons/fa6";
+import { FaBook } from "react-icons/fa6";
 import { MdMenuBook } from "react-icons/md";
 import { FaBagShopping } from "react-icons/fa6";
 import { RiContactsBook2Fill } from "react-icons/ri";
@@ -12,8 +12,6 @@ import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
     const [cart] = useCart();
-
-    const isAdmin = true;
 
     return (
         <div className="drawer lg:drawer-open">
@@ -30,25 +28,12 @@ const Dashboard = () => {
                     <div className="mb-4 text-xl md:text-2xl font-bold uppercase">
                         <Link to='/'>Dish hub restuarent </Link>
                     </div>
-                    {
-                        isAdmin ?
-                            <>
-                                <li><Link to={'/dashboard/userHome'}> <IoHomeSharp />Admin Home</Link></li>
-                                <li><Link to={'/dashboard/reservation'}> <SlCalender /> Add Items</Link></li>
-                                <li><Link to={'/dashboard/payment'}> <MdOutlinePayment /> Manage Items</Link></li>
-                                <li><Link to={'/dashboard/mycart'}> <FaBookOpen />Manage Bookings</Link></li>
-                                <li><Link to={'/dashboard/allUsers'}> <FaUserCheck /> All User</Link></li>
-                            </>
-                            :
-                            <>
-                                <li><Link to={'/dashboard/userHome'}> <IoHomeSharp /> User Home</Link></li>
-                                <li><Link to={'/dashboard/reservation'}> <SlCalender /> Reservation</Link></li>
-                                <li><Link to={'/dashboard/payment'}> <MdOutlinePayment /> Payment History</Link></li>
-                                <li><Link to={'/dashboard/mycart'}> <FaCartPlus /> My Cart <span className="badge badge-secondary">+{cart?.length}</span></Link></li>
-                                <li><Link to={'/dashboard/review'}> <MdRateReview /> Add Review</Link></li>
-                                <li><Link to={'/dashboard/booking'}> <FaBook /> My Booking</Link></li>
-                            </>
-                    }
+                    <li><Link to={'/dashboard/userHome'}> <IoHomeSharp /> User Home</Link></li>
+                    <li><Link to={'/dashboard/reservation'}> <SlCalender /> Reservation</Link></li>
+                    <li><Link to={'/dashboard/payment'}> <MdOutlinePayment /> Payment History</Link></li>
+                    <li><Link to={'/dashboard/mycart'}> <FaCartPlus /> My Cart <span className="badge badge-secondary">+{cart?.length}</span></Link></li>
+                    <li><Link to={'/dashboard/review'}> <MdRateReview /> Add Review</Link></li>
+                    <li><Link to={'/dashboard/booking'}> <FaBook /> My Booking</Link></li>
                     <div className="divider"></div>
                     <li><Link to='/'> <FaHome /> Home</Link></li>
                     <li><Link to='/menu'><MdMenuBook /> Our Menu</Link></li>
