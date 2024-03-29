@@ -8,13 +8,13 @@ const AllUsers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://food-server-virid-sigma.vercel.app/users');
             return res.json();
         }
     });
 
     const handleMakeAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user.id}`, {
+        fetch(`https://food-server-virid-sigma.vercel.app/users/admin/${user.id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())

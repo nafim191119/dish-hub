@@ -14,7 +14,7 @@ const Testimonials = () => {
     const [review, setReview] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://food-server-virid-sigma.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReview(data))
     }, [])
