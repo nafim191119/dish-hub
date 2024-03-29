@@ -30,10 +30,10 @@ const Dashboard = () => {
                     </div>
                     <li><Link to={'/dashboard/userHome'}> <IoHomeSharp /> User Home</Link></li>
                     <li><Link to={'/dashboard/reservation'}> <SlCalender /> Reservation</Link></li>
-                    <li><Link to={'/dashboard/payment'}> <MdOutlinePayment /> Payment History</Link></li>
+                    <li><Link to={'/dashboard/paymentHis'}> <MdOutlinePayment /> Payment History</Link></li>
                     <li><Link to={'/dashboard/mycart'}> <FaCartPlus /> My Cart <span className="badge badge-secondary">+{cart?.length}</span></Link></li>
-                    <li><Link to={'/dashboard/review'}> <MdRateReview /> Add Review</Link></li>
-                    <li><Link to={'/dashboard/booking'}> <FaBook /> My Booking</Link></li>
+                    {/* <li><Link to={'/dashboard/review'}> <MdRateReview /> Add Review</Link></li>
+                    <li><Link to={'/dashboard/booking'}> <FaBook /> My Booking</Link></li> */}
                     <div className="divider"></div>
                     <li><Link to='/'> <FaHome /> Home</Link></li>
                     <li><Link to='/menu'><MdMenuBook /> Our Menu</Link></li>

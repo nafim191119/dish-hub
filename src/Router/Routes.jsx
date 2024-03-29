@@ -11,6 +11,10 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import Reservation from "../Pages/Dashboard/Reservation/Reservation";
+import Payment from "../Pages/Dashboard/MyCart/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 
 
 export const router = createBrowserRouter([
@@ -55,6 +59,22 @@ export const router = createBrowserRouter([
       {
         path: 'allUsers',
         element: <AllUsers></AllUsers>
+      },
+      {
+        path: 'userHome',
+        element: <UserHome></UserHome>
+      },
+      {
+        path: 'reservation',
+        element: <Reservation></Reservation>
+      },
+      {
+        path: 'payment',
+        element: <Payment></Payment>
+      },
+      {
+        path: 'paymentHis',
+        element: <PaymentHistory></PaymentHistory>
       },
     ]
   }

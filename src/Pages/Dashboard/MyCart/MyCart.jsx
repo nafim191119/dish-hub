@@ -2,8 +2,9 @@ import { Helmet } from "react-helmet";
 import useCart from "../../../hooks/useCart";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
-const MyCart = ({item}) => {
+const MyCart = ({ item }) => {
     const [cart, refetch] = useCart();
     const total = cart.reduce((sum, item) => item.price + sum, 0);
     console.log(total);
@@ -52,7 +53,7 @@ const MyCart = ({item}) => {
                         <h2 className="">Total price: ${total}</h2>
                     </div>
                     <div>
-                        <h2><button className="btn btn-sm bg-primary text-white font-bold px-8 rounded-full shadow-md transition hover:text-black duration-500 ease-in-out uppercase">Pay</button></h2>
+                        <h2><Link to={"/dashboard/payment"}><button className="btn btn-sm bg-primary text-white font-bold px-8 rounded-full shadow-md transition hover:text-black duration-500 ease-in-out uppercase">Pay</button></Link></h2>
                     </div>
                 </div>
                 <div className="">

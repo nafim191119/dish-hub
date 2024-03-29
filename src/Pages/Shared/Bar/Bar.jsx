@@ -30,6 +30,7 @@ const Bar = () => {
                             <li><Link to='/menu'>Our Menu</Link></li>
                             <li><Link to='/order'>Order</Link></li>
                             <li><Link to='/contact'>Contact Us</Link></li>
+                            <li><Link to='/dashboard/mycart' className=""><FaCartPlus /> <div className="badge badge-secondary">+{cart?.length}</div></Link></li>
                             <li><Link to='/signup'>Signup</Link></li>
                             {
                                 user ? <><li><Link onClick={handleLogOut}>Logout</Link></li></> : <><li><Link to='/login'>Login</Link></li></>
