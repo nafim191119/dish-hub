@@ -39,13 +39,13 @@ const MyCart = ({ item }) => {
     }
 
     return (
-        <div className="mx-2 mt-10">
+        <div className="mx-2 mt-6">
             <Helmet>
                 <title>Dish Hub | My Cart</title>
             </Helmet>
             {/* <SectionTitle subHeading={"My Vart"} heading={"Wanna Add more?"}></SectionTitle> */}
             <div className="bg-pink-400 rounder-lg">
-                <div className="flex justify-center items-center gap-28 bg-pink-400 p-10 rounded-lg text-white font-bold text-2xl uppercase">
+                <div className="flex justify-center items-center gap-10 md:gap-28 bg-pink-400 py-4 px-8 md:p-10 rounded-lg text-white font-bold md:text-2xl uppercase">
                     <div>
                         <h2> Total Order: {cart.length}</h2>
                     </div>
